@@ -34,7 +34,7 @@ const isExternalLink = (url: string) => {
 </script>
 
 <template>
-  <footer class="mt-12 border-t border-neutral-200 bg-white sm:mt-16 lg:mt-20">
+  <footer class="border-t border-neutral-200 bg-white">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
       <div class="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
         <div>
