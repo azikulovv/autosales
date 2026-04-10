@@ -46,14 +46,14 @@ const closeMenu = () => {
 
         <div class="hidden items-center gap-3 lg:flex">
           <NuxtLink
-            to="/seller/login"
+            to="/auth/login"
             class="rounded-xl px-4 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
           >
             Войти
           </NuxtLink>
 
           <NuxtLink
-            to="/seller/register"
+            to="/auth/register"
             class="inline-flex h-11 items-center justify-center rounded-2xl bg-neutral-950 px-5 text-sm font-medium text-white transition hover:opacity-90"
           >
             Стать продавцом
