@@ -188,7 +188,7 @@ const saveProduct = async () => {
   <div class="min-h-screen bg-neutral-50 text-neutral-950">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
       <template v-if="form">
-        <section
+        <!-- <section
           class="rounded-[28px] bg-neutral-950 p-5 text-white shadow-xl sm:rounded-[32px] sm:p-7 lg:p-8"
         >
           <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -225,14 +225,14 @@ const saveProduct = async () => {
               </NuxtLink>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <section class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6">
           <div class="space-y-4">
             <section
               class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm"
             >
-              <div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+              <div class="">
                 <div class="p-4 sm:p-6">
                   <div class="overflow-hidden rounded-[24px] border border-neutral-200 bg-white">
                     <div class="relative aspect-[4/3] bg-neutral-100">
@@ -486,7 +486,7 @@ const saveProduct = async () => {
               </div>
             </section>
 
-            <section class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm sm:p-6">
+            <!-- <section class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm sm:p-6">
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <p class="text-sm font-medium text-neutral-500">Характеристики</p>
@@ -533,7 +533,7 @@ const saveProduct = async () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> -->
           </div>
 
           <aside class="space-y-4" :class="showMobileSidebar ? 'block' : 'hidden lg:block'">

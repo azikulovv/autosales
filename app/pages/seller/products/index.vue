@@ -245,7 +245,7 @@ const resetFilters = () => {
 <template>
   <div class="min-h-screen bg-neutral-50 text-neutral-950">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      <section
+      <!-- <section
         class="rounded-[28px] bg-neutral-950 p-5 text-white shadow-xl sm:rounded-[32px] sm:p-7 lg:p-8"
       >
         <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -281,7 +281,7 @@ const resetFilters = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <article class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
@@ -489,141 +489,145 @@ const resetFilters = () => {
 
         <section class="mt-5">
           <div class="hidden overflow-hidden rounded-[24px] border border-neutral-200 lg:block">
-            <table class="min-w-full border-collapse">
-              <thead class="bg-neutral-50">
-                <tr>
-                  <th class="w-14 px-4 py-4 text-left">
-                    <input
-                      type="checkbox"
-                      class="h-4 w-4 rounded border-neutral-300"
-                      :checked="allVisibleSelected"
-                      @change="toggleSelectAllVisible"
-                    />
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Товар
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Категория
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Цена
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Остаток
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Статус
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Обновлено
-                  </th>
-                  <th
-                    class="px-4 py-4 text-right text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
-                  >
-                    Действия
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody class="bg-white">
-                <tr
-                  v-for="product in filteredProducts"
-                  :key="product.id"
-                  class="border-t border-neutral-200"
-                >
-                  <td class="px-4 py-4 align-top">
-                    <input
-                      type="checkbox"
-                      class="h-4 w-4 rounded border-neutral-300"
-                      :checked="selectedIds.includes(product.id)"
-                      @change="toggleSelected(product.id)"
-                    />
-                  </td>
-
-                  <td class="px-4 py-4">
-                    <div class="flex items-center gap-3">
-                      <div class="h-14 w-14 overflow-hidden rounded-2xl bg-neutral-100">
-                        <img
-                          :src="product.image"
-                          :alt="product.name"
-                          class="h-full w-full object-cover"
-                        />
-                      </div>
-
-                      <div class="min-w-0">
-                        <p class="font-semibold text-neutral-950">
-                          {{ product.name }}
-                        </p>
-                        <p class="mt-1 text-sm text-neutral-500">
-                          {{ product.brand }} {{ product.model }} • {{ product.article }}
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-
-                  <td class="px-4 py-4 text-sm text-neutral-600">
-                    {{ product.category }}
-                  </td>
-
-                  <td class="px-4 py-4">
-                    <p class="font-semibold text-neutral-950">
-                      {{ formatPrice(product.price) }}
-                    </p>
-                  </td>
-
-                  <td class="px-4 py-4 text-sm text-neutral-600">{{ product.stock }} шт.</td>
-
-                  <td class="px-4 py-4">
-                    <span
-                      class="rounded-full px-3 py-1 text-xs font-semibold"
-                      :class="
-                        product.status === 'active'
-                          ? 'bg-emerald-50 text-emerald-700'
-                          : product.status === 'draft'
-                            ? 'bg-amber-50 text-amber-700'
-                            : 'bg-neutral-200 text-neutral-600'
-                      "
+            <div class="overflow-x-auto">
+              <table class="w-full min-w-[1120px] border-collapse table-auto">
+                <thead class="bg-neutral-50">
+                  <tr>
+                    <th class="w-14 px-4 py-4 text-left">
+                      <input
+                        type="checkbox"
+                        class="h-4 w-4 rounded border-neutral-300"
+                        :checked="allVisibleSelected"
+                        @change="toggleSelectAllVisible"
+                      />
+                    </th>
+                    <th
+                      class="w-[360px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
                     >
-                      {{ statusMap[product.status] }}
-                    </span>
-                  </td>
+                      Товар
+                    </th>
+                    <th
+                      class="w-[180px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Категория
+                    </th>
+                    <th
+                      class="w-[130px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Цена
+                    </th>
+                    <th
+                      class="w-[110px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Остаток
+                    </th>
+                    <th
+                      class="w-[150px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Статус
+                    </th>
+                    <th
+                      class="w-[150px] px-4 py-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Обновлено
+                    </th>
+                    <th
+                      class="w-[180px] px-4 py-4 text-right text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400"
+                    >
+                      Действия
+                    </th>
+                  </tr>
+                </thead>
 
-                  <td class="px-4 py-4 text-sm text-neutral-500">
-                    {{ product.updatedAt }}
-                  </td>
+                <tbody class="bg-white">
+                  <tr
+                    v-for="product in filteredProducts"
+                    :key="product.id"
+                    class="border-t border-neutral-200"
+                  >
+                    <td class="px-4 py-4 align-top">
+                      <input
+                        type="checkbox"
+                        class="h-4 w-4 rounded border-neutral-300"
+                        :checked="selectedIds.includes(product.id)"
+                        @change="toggleSelected(product.id)"
+                      />
+                    </td>
 
-                  <td class="px-4 py-4">
-                    <div class="flex justify-end gap-2">
-                      <button
-                        type="button"
-                        class="rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+                    <td class="px-4 py-4">
+                      <div class="flex min-w-0 items-center gap-3">
+                        <div class="h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-neutral-100">
+                          <img
+                            :src="product.image"
+                            :alt="product.name"
+                            class="h-full w-full object-cover"
+                          />
+                        </div>
+
+                        <div class="min-w-0">
+                          <p class="line-clamp-2 font-semibold text-neutral-950">
+                            {{ product.name }}
+                          </p>
+                          <p class="mt-1 truncate text-sm text-neutral-500">
+                            {{ product.brand }} {{ product.model }} • {{ product.article }}
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td class="px-4 py-4 text-sm text-neutral-600">
+                      <span class="line-clamp-2">{{ product.category }}</span>
+                    </td>
+
+                    <td class="px-4 py-4">
+                      <p class="whitespace-nowrap font-semibold text-neutral-950">
+                        {{ formatPrice(product.price) }}
+                      </p>
+                    </td>
+
+                    <td class="px-4 py-4 text-sm text-neutral-600">
+                      <span class="whitespace-nowrap">{{ product.stock }} шт.</span>
+                    </td>
+
+                    <td class="px-4 py-4">
+                      <span
+                        class="inline-flex whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold"
+                        :class="
+                          product.status === 'active'
+                            ? 'bg-emerald-50 text-emerald-700'
+                            : product.status === 'draft'
+                              ? 'bg-amber-50 text-amber-700'
+                              : 'bg-neutral-200 text-neutral-600'
+                        "
                       >
-                        Изменить
-                      </button>
-                      <button
-                        type="button"
-                        class="rounded-xl bg-neutral-950 px-3 py-2 text-sm font-medium text-white transition hover:opacity-90"
-                      >
-                        Открыть
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                        {{ statusMap[product.status] }}
+                      </span>
+                    </td>
+
+                    <td class="px-4 py-4 text-sm text-neutral-500">
+                      <span class="whitespace-nowrap">{{ product.updatedAt }}</span>
+                    </td>
+
+                    <td class="px-4 py-4">
+                      <div class="flex justify-end gap-2 whitespace-nowrap">
+                        <button
+                          type="button"
+                          class="rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+                        >
+                          Изменить
+                        </button>
+                        <button
+                          type="button"
+                          class="rounded-xl bg-neutral-950 px-3 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                        >
+                          Открыть
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div class="grid gap-4 lg:hidden">

@@ -107,7 +107,7 @@ const publicStoreUrl = computed(() => `/seller/${form.value.slug}`)
 <template>
   <div class="min-h-screen bg-neutral-50 text-neutral-950">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      <section
+      <!-- <section
         class="rounded-[28px] bg-neutral-950 p-5 text-white shadow-xl sm:rounded-[32px] sm:p-7 lg:p-8"
       >
         <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -146,9 +146,10 @@ const publicStoreUrl = computed(() => `/seller/${form.value.slug}`)
             </NuxtLink>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6">
+      <!-- <section class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6"> -->
+      <section class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6">
         <div class="space-y-4">
           <section
             class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm"
@@ -178,7 +179,7 @@ const publicStoreUrl = computed(() => `/seller/${form.value.slug}`)
                   <div class="min-w-0 pb-1">
                     <div class="flex flex-wrap items-center gap-2">
                       <h2
-                        class="text-2xl font-semibold tracking-tight text-white sm:text-3xl text-shadow-black"
+                        class="text-2xl font-semibold tracking-tight text-white sm:text-3xl text-shadow-lg"
                       >
                         {{ form.name || 'Название магазина' }}
                       </h2>

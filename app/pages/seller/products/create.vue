@@ -183,7 +183,7 @@ const saveProduct = async () => {
 <template>
   <div class="min-h-screen bg-neutral-50 text-neutral-950">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      <section
+      <!-- <section
         class="rounded-[28px] bg-neutral-950 p-5 text-white shadow-xl sm:rounded-[32px] sm:p-7 lg:p-8"
       >
         <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -223,14 +223,15 @@ const saveProduct = async () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6">
+      <!-- <section class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6"> -->
+      <section class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6">
         <div class="space-y-4">
           <section
             class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm"
           >
-            <div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="">
               <div class="p-4 sm:p-6">
                 <div class="overflow-hidden rounded-[24px] border border-neutral-200 bg-white">
                   <div class="relative aspect-[4/3] bg-neutral-100">
@@ -337,9 +338,9 @@ const saveProduct = async () => {
               <div class="border-t border-neutral-200 p-4 sm:p-6 lg:border-l lg:border-t-0">
                 <div class="grid gap-4">
                   <div>
-                    <label class="mb-2 block text-sm font-medium text-neutral-700"
-                      >Название товара</label
-                    >
+                    <label class="mb-2 block text-sm font-medium text-neutral-700">
+                      Название товара
+                    </label>
                     <input
                       v-model="form.name"
                       type="text"
@@ -548,8 +549,10 @@ const saveProduct = async () => {
           </section>
         </div>
 
-        <aside class="space-y-4" :class="showMobileSidebar ? 'block' : 'hidden lg:block'">
-          <div class="rounded-[28px] border border-neutral-200 bg-white p-5 shadow-sm">
+        <aside class="relative space-y-4" :class="showMobileSidebar ? 'block' : 'hidden lg:block'">
+          <div
+            class="sticky top-20 rounded-[28px] border border-neutral-200 bg-white p-5 shadow-sm"
+          >
             <p class="text-sm font-medium text-neutral-500">Сводка</p>
 
             <div class="mt-4 space-y-3">

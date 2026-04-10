@@ -22,10 +22,10 @@ const navigation = [
       { label: 'Добавить товар', to: '/seller/products/create' },
     ],
   },
-  {
-    title: 'Продажи',
-    items: [{ label: 'Заказы', to: '/seller/orders' }],
-  },
+  // {
+  //   title: 'Продажи',
+  //   items: [{ label: 'Заказы', to: '/seller/orders' }],
+  // },
 ]
 
 const isActive = (path: string) => {
@@ -42,7 +42,7 @@ const closeSidebar = () => {
 </script>
 
 <template>
-  <div v-if="true" class="">
+  <div v-if="false" class="">
     <AppHeader />
 
     <main>
@@ -79,14 +79,24 @@ const closeSidebar = () => {
           class="flex h-16 items-center justify-between border-b border-neutral-200 px-4 sm:px-5"
         >
           <NuxtLink to="/seller/dashboard" class="flex items-center gap-3" @click="closeSidebar">
-            <div
+            <!-- <div
               class="flex h-10 w-10 items-center justify-center rounded-2xl bg-neutral-950 text-sm font-semibold text-white"
             >
               AP
-            </div>
+            </div> -->
+            <img
+              src="/favicon.svg"
+              alt=""
+              class="border border-[#F7762F] h-10 w-10 shrink-0 rounded-2xl text-white"
+            />
 
             <div>
-              <p class="text-sm font-semibold tracking-tight text-neutral-950">Seller Panel</p>
+              <p
+                class="truncate text-sm font-semibold tracking-tight text-neutral-950 sm:text-base"
+              >
+                <span>авто</span>
+                <span class="text-[#F7762F]">сейлс</span>
+              </p>
               <p class="text-xs text-neutral-500">Кабинет продавца</p>
             </div>
           </NuxtLink>
@@ -155,14 +165,6 @@ const closeSidebar = () => {
             <p class="mt-1 text-sm text-neutral-500">seller@autoprice.kz</p>
 
             <div class="mt-4 grid gap-2">
-              <NuxtLink
-                to="/seller/profile"
-                class="flex h-11 items-center justify-center rounded-2xl bg-neutral-950 text-sm font-medium text-white transition hover:opacity-90"
-                @click="closeSidebar"
-              >
-                Профиль магазина
-              </NuxtLink>
-
               <button
                 type="button"
                 class="flex h-11 items-center justify-center rounded-2xl border border-neutral-200 bg-white text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
@@ -174,8 +176,8 @@ const closeSidebar = () => {
         </div>
       </aside>
 
-      <div class="min-w-0 flex-1">
-        <header class="sticky top-0 z-20 border-b border-neutral-200 bg-white/90 backdrop-blur-xl">
+      <div class="min-w-0 flex-1 overflow-y-auto h-screen">
+        <!-- <header class="sticky top-0 z-20 border-b border-neutral-200 bg-white/90 backdrop-blur-xl">
           <div class="flex h-16 items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
             <div class="flex min-w-0 items-center gap-3">
               <button
@@ -223,7 +225,7 @@ const closeSidebar = () => {
               </NuxtLink>
             </div>
           </div>
-        </header>
+        </header> -->
 
         <main class="px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
           <slot />

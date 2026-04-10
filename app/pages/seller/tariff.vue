@@ -166,7 +166,7 @@ const saveTariff = async () => {
 <template>
   <div class="min-h-screen bg-neutral-50 text-neutral-950">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      <section
+      <!-- <section
         class="rounded-[28px] bg-neutral-950 p-5 text-white shadow-xl sm:rounded-[32px] sm:p-7 lg:p-8"
       >
         <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -205,9 +205,10 @@ const saveTariff = async () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <!-- <section class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4"> -->
+      <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <article class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
           <p class="text-sm text-neutral-500">Текущий тариф</p>
           <p class="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">
