@@ -42,7 +42,7 @@ const closeSidebar = () => {
 </script>
 
 <template>
-  <div v-if="false" class="">
+  <div v-if="true" class="">
     <AppHeader />
 
     <main>
