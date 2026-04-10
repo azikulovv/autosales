@@ -13,6 +13,25 @@ export type Seller = {
   avatar: string
 }
 
+export type SellerProfile = {
+  shopName: string
+  slug: string
+  city: string
+  address: string
+  phone: string
+  whatsapp: string
+  telegram: string
+  email: string
+  description: string
+  logo: string | File | null
+  website: string
+  hasDelivery: boolean
+  isVerified: boolean
+  workingHours: string
+  brands: string[]
+  categories: string[]
+}
+
 export type SellerStats = {
   total: number
   verified: number

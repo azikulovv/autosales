@@ -12,6 +12,10 @@ useSeoMeta({
     'Каталог продавцов автозапчастей с фильтрами по городу, марке автомобиля и специализации.',
 })
 
+definePageMeta({
+  public: true,
+})
+
 const {
   search,
   selectedCity,

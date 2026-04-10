@@ -65,7 +65,7 @@ const isExternalLink = (url: string) => {
             </NuxtLink>
 
             <NuxtLink
-              to="/seller/register"
+              to="/auth/register"
               class="inline-flex h-11 items-center justify-center rounded-2xl border border-neutral-200 px-5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               Стать продавцом

@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import process from 'process'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -8,7 +9,13 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  modules: ['@primevue/nuxt-module'],
   typescript: {
     strict: true,
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_URL,
+    },
   },
 })

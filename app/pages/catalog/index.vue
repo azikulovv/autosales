@@ -14,6 +14,10 @@ useSeoMeta({
   description: 'Каталог автозапчастей с подбором по автомобилю, категории и цене.',
 })
 
+definePageMeta({
+  public: true,
+})
+
 const {
   search,
   selectedCategory,

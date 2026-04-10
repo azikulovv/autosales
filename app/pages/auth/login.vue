@@ -1,12 +1,41 @@
 <script setup lang="ts">
 definePageMeta({
   layout: false,
+  public: true,
 })
 
 useSeoMeta({
   title: 'автосейлс | Вход для продавцов',
   description: 'Авторизация продавцов в кабинете маркетплейса автозапчастей.',
 })
+
+const { login } = useAuth()
+
+const form = reactive({
+  email: '',
+  password: '',
+})
+
+const pending = ref(false)
+const errorMessage = ref('')
+
+const submit = async () => {
+  try {
+    pending.value = true
+    errorMessage.value = ''
+
+    await login({
+      email: form.email,
+      password: form.password,
+    })
+
+    await navigateTo('/seller/profile')
+  } catch (error: any) {
+    errorMessage.value = error?.data?.message || error?.response?._data?.message || 'Ошибка входа'
+  } finally {
+    pending.value = false
+  }
+}
 </script>
 
 <template>
@@ -24,13 +53,17 @@ useSeoMeta({
         <div class="relative z-10 flex h-full flex-col justify-between">
           <div>
             <div class="flex items-center gap-3">
-              <div
-                class="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-neutral-950 sm:h-11 sm:w-11"
-              >
-                AP
-              </div>
+              <img
+                src="/favicon.svg"
+                alt=""
+                class="border border-[#F7762F] h-10 w-10 shrink-0 rounded-2xl text-white"
+              />
+
               <div>
-                <p class="text-base font-semibold tracking-tight sm:text-lg">AutoPrice Seller</p>
+                <p class="text-base font-semibold tracking-tight sm:text-lg">
+                  <span>авто</span>
+                  <span class="text-[#F7762F]">сейлс</span>
+                </p>
                 <p class="text-xs text-white/60 sm:text-sm">Кабинет продавца автозапчастей</p>
               </div>
             </div>
@@ -114,10 +147,12 @@ useSeoMeta({
             </p>
           </div>
 
-          <form class="space-y-4">
+          <form @submit.prevent="submit" class="space-y-4">
             <div>
               <label class="mb-2 block text-sm font-medium text-neutral-700">Email</label>
+
               <input
+                v-model="form.email"
                 type="email"
                 placeholder="seller@example.com"
                 class="h-13 w-full rounded-2xl border border-neutral-200 px-4 text-sm outline-none transition focus:border-neutral-950 sm:h-14"
@@ -134,12 +169,18 @@ useSeoMeta({
                   Забыли пароль?
                 </button>
               </div>
+
               <input
                 type="password"
+                v-model="form.password"
                 placeholder="Введите пароль"
                 class="h-13 w-full rounded-2xl border border-neutral-200 px-4 text-sm outline-none transition focus:border-neutral-950 sm:h-14"
               />
             </div>
+
+            <p v-if="errorMessage" class="text-sm text-red-500">
+              {{ errorMessage }}
+            </p>
 
             <div
               class="flex flex-col gap-3 rounded-2xl bg-neutral-50 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
@@ -153,9 +194,10 @@ useSeoMeta({
 
             <button
               type="submit"
+              :disabled="pending"
               class="flex h-13 w-full items-center justify-center rounded-2xl bg-neutral-950 text-sm font-medium text-white transition hover:opacity-90 sm:h-14"
             >
-              Войти
+              {{ pending ? 'Входим...' : 'Войти' }}
             </button>
 
             <!-- <button

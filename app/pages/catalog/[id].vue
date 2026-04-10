@@ -12,6 +12,10 @@ useSeoMeta({
   description: 'Подробная информация об автозапчасти: совместимость, артикул, наличие и цена.',
 })
 
+definePageMeta({
+  public: true,
+})
+
 const route = useRoute()
 
 const productId = computed(() => Number(route.params.id))

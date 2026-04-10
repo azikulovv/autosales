@@ -1,8 +1,11 @@
 <script setup lang="ts">
-
 useSeoMeta({
   title: 'Продавец автозапчастей',
   description: 'Публичная страница продавца с товарами, рейтингом, описанием и контактами.',
+})
+
+definePageMeta({
+  public: true,
 })
 
 type SellerProduct = {

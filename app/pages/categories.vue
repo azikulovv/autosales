@@ -5,6 +5,10 @@ useSeoMeta({
     'Выбор категорий автозапчастей с быстрым переходом в каталог по автомобилю и типу детали.',
 })
 
+definePageMeta({
+  public: true,
+})
+
 type CategoryItem = {
   title: string
   slug: string
@@ -88,7 +92,7 @@ const quickLinks: QuickLink[] = [
   { label: 'Все автозапчасти', to: '/catalog' },
   { label: 'Только в наличии', to: '/catalog?stock=1' },
   { label: 'Самые дешевые', to: '/catalog?sort=price-asc' },
-  { label: 'Для продавцов', to: '/seller/register' },
+  { label: 'Для продавцов', to: '/auth/register' },
 ]
 
 const selectedBrand = ref('toyota')
